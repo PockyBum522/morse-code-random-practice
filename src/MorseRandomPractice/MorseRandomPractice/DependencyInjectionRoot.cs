@@ -1,9 +1,6 @@
-using System.Runtime.InteropServices;
 using Autofac;
-using MorseRandomPractice.Interfaces;
 using MorseRandomPractice.ViewModels;
 using MorseRandomPractice.Views;
-using MorseRandomPractice.WindowHelpers;
 
 namespace MorseRandomPractice;
 
@@ -38,14 +35,6 @@ public class DependencyInjectionRoot
                 return true;
             });
         };
-
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            DependencyContainerBuilder.RegisterType<LinuxWindowController>().As<IWindowLowLevelController>().SingleInstance();
-        
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            DependencyContainerBuilder.RegisterType<MicrosoftWindowController>().As<IWindowLowLevelController>().SingleInstance();
-        
-        DependencyContainerBuilder.RegisterType<ShellCommandWrapper>().AsSelf().SingleInstance();
         
         // Setup UI (Views and ViewModels) 
         DependencyContainerBuilder.RegisterType<MainViewModel>().AsSelf().SingleInstance();

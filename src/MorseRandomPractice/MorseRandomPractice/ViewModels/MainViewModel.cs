@@ -6,8 +6,8 @@ namespace MorseRandomPractice.ViewModels;
 // This is just for window selection gui. Most of the window size/position actual logic is in App.axaml.cs
 public partial class MainViewModel(ILogger? loggerApplication = null) : ObservableObject
 {
-    [ObservableProperty] private string _englishCharacterSetText;
-    [ObservableProperty] private string _morseCharacterSetText;
+    [ObservableProperty] private string _englishCharacterSetText = "";
+    [ObservableProperty] private string _morseCharacterSetText = "";
 
     private List<string> _hiddenMorseLines = [];
     private int _revealedLinesCount = 0;

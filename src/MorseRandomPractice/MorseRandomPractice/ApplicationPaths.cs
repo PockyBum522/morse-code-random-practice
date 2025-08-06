@@ -1,5 +1,3 @@
-using System.Runtime.InteropServices;
-
 namespace MorseRandomPractice;
 
 public static class ApplicationPaths
@@ -37,7 +35,7 @@ public static class ApplicationPaths
             
         ApplicationLoggingDirectory = Path.Join(logBasePath, "Logs");
         
-        UserSettingsDirectory = Path.Join(basePath, "window-positions-toggle");
+        UserSettingsDirectory = Path.Join(basePath, "morse-practice");
     }
     
     public static string ApplicationLoggingDirectory { get; private set; }

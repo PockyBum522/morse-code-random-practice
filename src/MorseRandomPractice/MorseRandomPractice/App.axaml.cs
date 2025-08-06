@@ -1,38 +1,18 @@
-using System.Diagnostics;
-using System.Linq;
 using Autofac;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using Newtonsoft.Json;
-using SharpHook;
-using SharpHook.Data;
-using MorseRandomPractice.Interfaces;
-using MorseRandomPractice.Models;
 using MorseRandomPractice.Views;
-using MorseRandomPractice.WindowHelpers;
 
 namespace MorseRandomPractice;
 
 public class App : Application
 {
-    private static readonly string _userPreferencesFileName = $".{Environment.MachineName}-window-preferred-locations.json";
+    private static readonly string _userPreferencesFileName = $".{Environment.MachineName}-morse-practice.json";
     
     public static readonly string UserPreferencesFullPath = Path.Combine(ApplicationPaths.UserSettingsDirectory, _userPreferencesFileName);
     
     private static ILogger? _logger;
-    private static IWindowLowLevelController? _windowController;
-    
-    private static ShellCommandWrapper? _shellCommandWrapper;
-    
-    private static List<string> _classIgnoreList = new(){ "nemo-desktop.Nemo-desktop" };
-    
-    private static bool _isAltKeyPressedDown;
-    private static Stopwatch _hotkeyAltEventsRunTimer = new();
-    private static Stopwatch _hotkeyWindowWorkEventsRunTimer = new();
-
-    private static WindowInformation? _activeWindow;
-    private static List<SavedWindowPreferences>? _userSavedPreferences;
 
     public override void Initialize()
     {
