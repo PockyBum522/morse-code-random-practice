@@ -7,7 +7,7 @@
         mc:Ignorable="d" 
         x:Class="MorseRandomPractice.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="Window Positions Toggle - Selection"
+        Title="Morse Code Random Trainer"
         Width="257" Height="210"
         Background="Black" >
         
